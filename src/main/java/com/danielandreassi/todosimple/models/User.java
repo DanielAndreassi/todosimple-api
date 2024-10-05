@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.*;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -34,7 +36,8 @@ public class User {
     @Size(min = 8, max = 60)
     private String password;
 
-    //private List<Task> tasks = new ArrayList<task>();
+    @OneToMany(mappedBy = "user")
+    private List<Task> tasks = new ArrayList<Task>();
 
 
     public User() {
@@ -68,6 +71,14 @@ public class User {
 
     public void setPassword(@NotNull(groups = {CreateUSer.class, UpdateUser.class}) @NotEmpty(groups = CreateUSer.class) @Size(min = 8, max = 60) String password) {
         this.password = password;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override
