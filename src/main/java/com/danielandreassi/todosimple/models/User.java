@@ -1,5 +1,6 @@
 package com.danielandreassi.todosimple.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.*;
@@ -73,6 +74,7 @@ public class User {
         this.password = password;
     }
 
+    @JsonIgnore
     public List<Task> getTasks() {
         return tasks;
     }
