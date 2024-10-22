@@ -1,6 +1,5 @@
 package com.danielandreassi.todosimple.controllers;
 
-
 import com.danielandreassi.todosimple.models.Task;
 import com.danielandreassi.todosimple.services.TaskService;
 import com.danielandreassi.todosimple.services.UserService;
